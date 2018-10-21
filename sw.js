@@ -23,14 +23,10 @@ const cacheItems = [
 	'/img/10.jpg'
 ];
 
-console.log('SW Registered!');
-
 self.addEventListener('install', function(e) {
-	console.log('caching files');
 	e.waitUntil(
 		caches.open(cacheName)
 		.then(function(cache) {
-			console.log('cache now')
 			return cache.addAll(cacheItems);
 		})
 		.catch(function(error) {
